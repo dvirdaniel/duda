@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Duda Application</title>
+
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+</head>
+
+<body>
+<main role="main" class="container">
+
+    <table border="1">
+        <thead>
+        <tr th:if="${!pupils.empty}">
+            <th> Pupil Id </th>
+            <th> Pupil Latitude </th>
+            <th> Pupil Longitude </th>
+            <th> Pupil GPA </th>
+            <th> School Id </th>
+            <th> School Latitude </th>
+            <th> School Longitude </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${pupils.empty}">
+            <td colspan="2"> No Pupils </td>
+        </tr>
+        <tr th:each="pupil : ${pupils}">
+            <td><span th:text="${pupil.id}"> Pupil Id </span></td>
+            <td><span th:text="${pupil.lat}"> Pupil Latitude </span></td>
+            <td><span th:text="${pupil.lon}"> Pupil Longitude </span></td>
+            <td><span th:text="${pupil.getGPA()}"> Pupil GPA </span></td>
+
+            <td th:if="${pupil.schoolEntity}"><span th:text="${pupil.schoolEntity.id}"> School Id </span></td>
+            <td th:if="${pupil.schoolEntity}"><span th:text="${pupil.schoolEntity.lat}"> School Latitude </span></td>
+            <td th:if="${pupil.schoolEntity}"><span th:text="${pupil.schoolEntity.lon}"> School Longitude </span></td>
+        </tr>
+        </tbody>
+    </table>
+
+</main>
+</body>
+</html>

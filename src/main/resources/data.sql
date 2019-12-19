@@ -1,0 +1,35 @@
+DROP TABLE IF EXISTS pupil;
+ 
+CREATE TABLE pupil (
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  lat NUMERIC NOT NULL,
+  lon NUMERIC NOT NULL,
+  school_id INT,
+);
+ 
+DROP TABLE IF EXISTS school;
+
+CREATE TABLE school (
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  lat NUMERIC NOT NULL,
+  lon NUMERIC NOT NULL,
+  min_gpa INT NOT NULL,
+  max_num_pupil INT NOT NULL
+);
+
+DROP TABLE IF EXISTS friendship;
+
+CREATE TABLE friendship (
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  first_pupil_id INT NOT NULL,
+  second_pupil_id INT NOT NULL
+);
+
+DROP TABLE IF EXISTS grade;
+
+CREATE TABLE grade (
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  COURSE_NAME VARCHAR(100) NOT NULL,
+  grade INT NOT NULL,
+  pupil_id INT
+);
