@@ -1,3 +1,5 @@
+To run app use from this folder the following command: java -jar duda.jar
+
 ================================================
 Get all pupils: localhost:8080/pupil
 ================================================
